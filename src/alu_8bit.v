@@ -13,6 +13,7 @@ module alu_8bit(a, b, cin, aluop, y);
   reg [7:0] logicval;
 
   // 算术执行单元
+  // ALU 模块是组合逻辑，所以 always 块中使用阻塞赋值“=”
   // 运算单元是根据输入指令的低三位 sel[2:0]，来选择执行加减等运算。
   always @(a or b or cin or aluop) begin
     case (aluop[2:0])
