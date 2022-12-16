@@ -1,3 +1,5 @@
+// 译码-控制模块
+// 当指令清除信号 flush 有效时，把译码模块产生的 jump、branch、mem_read、mem_write、reg_write……这些控制信号全部清“0”。否则，就把这些控制信号发送给流水线的下一级进行处理。
 
 module id_ex_ctrl(
   input        clk,

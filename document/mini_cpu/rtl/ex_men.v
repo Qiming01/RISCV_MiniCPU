@@ -1,3 +1,6 @@
+// 访存数据通路模块
+// 把访存阶段读取到的存储器数据，或者是指令执行产生的结果发送流水线的下一级处理。
+// 和上面的访存控制模块类似，访存数据通路模块也是根据流水线的冲刷控制信号 flush，判断访存阶段的数据是否需要清零。如果不需要清零，就把上一阶段送过来的数据通过寄存器保存下来。
 
 module ex_mem(
   input         clk,
@@ -20,6 +23,12 @@ module ex_mem(
   reg [31:0] reg_result; 
   reg [31:0] reg_pc; 
 
+
+
+  /*ex_result_sel 就是对流水线执行阶段的结果进行选择。
+  当（ex_result_sel == 2’h0）时，就选择 ALU 的运算结果；
+  当（ex_result_sel == 2’h1）时，就会选择指令解码得到的立即数（其实就是对应 LUI 指令）；
+  当（ex_result_sel == 2’h2）时，选择 PC 加 4 的值，也就是下一个 PC 的值。*/
   wire [31:0] resulet_w = (ex_result_sel == 2'h0) ? alu_result :
                           (ex_result_sel == 2'h1) ? id_ex_data_imm :
                           (ex_result_sel == 2'h2) ? (in_pc + 32'h4): 32'h0;

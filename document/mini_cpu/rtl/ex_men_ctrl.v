@@ -1,4 +1,10 @@
 
+// 访存控制信号中，最重要的两个信号就是存储器读控制信号 memRead 和写控制信号 memWrite
+// 根据流水线的冲刷控制信号flush，判断访存阶段的控制信号是否需要清零
+// 如果 flush 等于“0”，就把上一阶段送过来的控制信号（比如存储器读控制信号 memRead、存储器写控制信号 memWrite……等），
+// 通过寄存器保存下来，然后发送给存储器读写控制模块（dmem_rw.v）或者流水线的下一级使用。
+
+
 module ex_mem_ctrl(
   input        clk,
   input        reset,

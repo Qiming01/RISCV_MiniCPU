@@ -4,9 +4,9 @@ BUILD_DIR := ./build
 OBJ_DIR := $(BUILD_DIR)
 
 # Compilation flags
-AS := riscv32-unknown-elf-as
-DUMP := riscv32-unknown-elf-objdump
-COPY := riscv32-unknown-elf-objcopy
+AS := riscv64-unknown-elf-as
+DUMP := riscv64-unknown-elf-objdump
+COPY := riscv64-unknown-elf-objcopy
 CFLAGS := -march=rv32i -mabi=ilp32
 DUMPFLAGS := -D
 VCOPYFLAGS := -O verilog

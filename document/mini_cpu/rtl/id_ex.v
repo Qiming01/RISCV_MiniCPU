@@ -1,4 +1,7 @@
-
+/**
+* 译码数据通路模块
+* 译码数据通路模块会根据 CPU 相关控制模块产生的流水线冲刷控制信号，决定要不要把这些数据发送给后续模块
+*/
 module id_ex(
   input         clk,
   input         reset,
@@ -43,6 +46,10 @@ module id_ex(
   assign out_rs1_addr = reg_rs1_addr; 
   assign out_rs2_addr = reg_rs2_addr; 
 
+  // 以目标寄存器的索引地址reg_rd_addr信号为例
+  // 当流水线冲刷信号flush有效时
+  // 目标寄存器的索引地址reg_rd_addr直接清0
+  // 否则当信号有效标志valid为1时，把目标寄存器的索引地址传递给流水线的下一级
   always @(posedge clk or posedge reset) begin
     if (reset) begin 
       reg_rd_addr <= 5'h0; 

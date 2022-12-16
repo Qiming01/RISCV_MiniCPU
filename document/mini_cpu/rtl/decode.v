@@ -1,10 +1,18 @@
+/**
+* 全部的目标寄存器索引 rd 都位于指令的第 7～11 位
+* 源寄存器索引 rs1 位于指令的第 15～19 位
+* 源寄存器索引 rs2 位于指令的第 20～24 位
+* 三位的操作码 funct3 位于指令的第 12～14 位
+* 七位的操作码 funct7 位于指令的第 25～31 位
+
+*/
 
 module decode (
-  input  [31:0] instr,
+  input  [31:0] instr,  // 指令源码
 
-  output  [4:0] rs1_addr,
-  output  [4:0] rs2_addr,
-  output  [4:0] rd_addr,
+  output  [4:0] rs1_addr,// 源寄存器rs1索引
+  output  [4:0] rs2_addr,// 源寄存器rs2索引
+  output  [4:0] rd_addr, // 目标寄存器rd索引
   output  [2:0] funct3,
   output  [6:0] funct7,
   output        branch,
@@ -37,6 +45,8 @@ assign rd_addr = instr[11:7];
 assign funct7 = instr[31:25]; 
 assign funct3 = instr[14:12]; 
 
+// 以下是指令操作码的译码和产生相关指令控制信号
+
 // ----------------------------- decode signals ---------------------------------
 
 //                        20     19-18  17       16        15        14     13-12      11      10     9--------3  2---1      0
@@ -54,6 +64,10 @@ localparam DEC_ALUR    = {1'b0,  2'b00, 1'b0,    1'b0,     1'b1,     1'b0,  2'b0
 assign  {branch, jump, mem_read, mem_write, reg_write, to_reg, result_sel, alu_src, pc_add, types, alu_ctrlop, valid_inst} = dec_array;
 
 
+/**
+* 译码的过程就是先识别指令的低7位操作码instr[6:0]
+* 根据操作码对应的代码标识，产生分支信号branch、跳转信号jump、读存储器信号mem_read...
+*/
 always @(*) begin
   //$write("%x", instr);
   case(instr[6:0])
@@ -73,6 +87,7 @@ always @(*) begin
   endcase
 end
 
+// 根据不同指令中立即数的分布位置，提取指令中的立即数
 // -------------------- IMM -------------------------
 
 wire [31:0] Iimm = {{21{instr[31]}}, instr[30:20]};
