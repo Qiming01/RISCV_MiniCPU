@@ -13,7 +13,7 @@ module pc_reg(
 	input wire[`InstAddrBus]	jump_addr_i,	// 跳转地址
 	input wire[`Hold_Flag_Bus]	hold_flag_i,	// 流水线暂停标志
 
-    output reg[`InstAddrBus]	pc_o           	// PC指针
+	output reg[`InstAddrBus]	pc_o           	// PC指针
 
 	
 );
