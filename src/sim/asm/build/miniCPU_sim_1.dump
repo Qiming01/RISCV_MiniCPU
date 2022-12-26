@@ -1,0 +1,123 @@
+
+build/miniCPU_sim_1.o：     文件格式 elf32-littleriscv
+
+
+Disassembly of section .text:
+
+00000000 <main>:
+   0:	20000137          	lui	sp,0x20000
+   4:	00001337          	lui	t1,0x1
+   8:	50030313          	addi	t1,t1,1280 # 1500 <end+0x13e4>
+   c:	00000393          	li	t2,0
+  10:	04800293          	li	t0,72
+  14:	00512023          	sw	t0,0(sp) # 20000000 <end+0x1ffffee4>
+
+00000018 <delay1>:
+  18:	00138393          	addi	t2,t2,1
+  1c:	fe639ee3          	bne	t2,t1,18 <delay1>
+  20:	00000393          	li	t2,0
+  24:	06500293          	li	t0,101
+  28:	00512023          	sw	t0,0(sp)
+
+0000002c <delay2>:
+  2c:	00138393          	addi	t2,t2,1
+  30:	fe639ee3          	bne	t2,t1,2c <delay2>
+  34:	00000393          	li	t2,0
+  38:	06c00293          	li	t0,108
+  3c:	00512023          	sw	t0,0(sp)
+
+00000040 <delay3>:
+  40:	00138393          	addi	t2,t2,1
+  44:	fe639ee3          	bne	t2,t1,40 <delay3>
+  48:	00000393          	li	t2,0
+  4c:	06c00293          	li	t0,108
+  50:	00512023          	sw	t0,0(sp)
+
+00000054 <delay4>:
+  54:	00138393          	addi	t2,t2,1
+  58:	fe639ee3          	bne	t2,t1,54 <delay4>
+  5c:	00000393          	li	t2,0
+  60:	06f00293          	li	t0,111
+  64:	00512023          	sw	t0,0(sp)
+
+00000068 <delay5>:
+  68:	00138393          	addi	t2,t2,1
+  6c:	fe639ee3          	bne	t2,t1,68 <delay5>
+  70:	00000393          	li	t2,0
+  74:	00000293          	li	t0,0
+  78:	00512023          	sw	t0,0(sp)
+
+0000007c <delay6>:
+  7c:	00138393          	addi	t2,t2,1
+  80:	fe639ee3          	bne	t2,t1,7c <delay6>
+  84:	00000393          	li	t2,0
+  88:	04d00293          	li	t0,77
+  8c:	00512023          	sw	t0,0(sp)
+
+00000090 <delay7>:
+  90:	00138393          	addi	t2,t2,1
+  94:	fe639ee3          	bne	t2,t1,90 <delay7>
+  98:	00000393          	li	t2,0
+  9c:	06900293          	li	t0,105
+  a0:	00512023          	sw	t0,0(sp)
+
+000000a4 <delay8>:
+  a4:	00138393          	addi	t2,t2,1
+  a8:	fe639ee3          	bne	t2,t1,a4 <delay8>
+  ac:	00000393          	li	t2,0
+  b0:	06e00293          	li	t0,110
+  b4:	00512023          	sw	t0,0(sp)
+
+000000b8 <delay9>:
+  b8:	00138393          	addi	t2,t2,1
+  bc:	fe639ee3          	bne	t2,t1,b8 <delay9>
+  c0:	00000393          	li	t2,0
+  c4:	06900293          	li	t0,105
+  c8:	00512023          	sw	t0,0(sp)
+
+000000cc <delay10>:
+  cc:	00138393          	addi	t2,t2,1
+  d0:	fe639ee3          	bne	t2,t1,cc <delay10>
+  d4:	00000393          	li	t2,0
+  d8:	04300293          	li	t0,67
+  dc:	00512023          	sw	t0,0(sp)
+
+000000e0 <delay11>:
+  e0:	00138393          	addi	t2,t2,1
+  e4:	fe639ee3          	bne	t2,t1,e0 <delay11>
+  e8:	00000393          	li	t2,0
+  ec:	05000293          	li	t0,80
+  f0:	00512023          	sw	t0,0(sp)
+
+000000f4 <delay12>:
+  f4:	00138393          	addi	t2,t2,1
+  f8:	fe639ee3          	bne	t2,t1,f4 <delay12>
+  fc:	00000393          	li	t2,0
+ 100:	05500293          	li	t0,85
+ 104:	00512023          	sw	t0,0(sp)
+
+00000108 <delay13>:
+ 108:	00138393          	addi	t2,t2,1
+ 10c:	fe639ee3          	bne	t2,t1,108 <delay13>
+ 110:	00000393          	li	t2,0
+ 114:	02100293          	li	t0,33
+ 118:	00512023          	sw	t0,0(sp)
+
+0000011c <end>:
+ 11c:	0000006f          	j	11c <end>
+ 120:	00008067          	ret
+
+Disassembly of section .riscv.attributes:
+
+00000000 <.riscv.attributes>:
+   0:	1941                	.2byte	0x1941
+   2:	0000                	.2byte	0x0
+   4:	7200                	.2byte	0x7200
+   6:	7369                	.2byte	0x7369
+   8:	01007663          	bgeu	zero,a6,14 <.riscv.attributes+0x14>
+   c:	0000000f          	fence	unknown,unknown
+  10:	7205                	.2byte	0x7205
+  12:	3376                	.2byte	0x3376
+  14:	6932                	.2byte	0x6932
+  16:	7032                	.2byte	0x7032
+  18:	0030                	.2byte	0x30

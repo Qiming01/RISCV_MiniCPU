@@ -1,0 +1,55 @@
+
+build/miniCPU_sim_3.o：     文件格式 elf32-littleriscv
+
+
+Disassembly of section .text:
+
+00000000 <main>:
+   0:	10000093          	li	ra,256
+   4:	20000113          	li	sp,512
+   8:	06114463          	blt	sp,ra,70 <return>
+   c:	00500193          	li	gp,5
+  10:	003090b3          	sll	ra,ra,gp
+  14:	04110e63          	beq	sp,ra,70 <return>
+  18:	00118193          	addi	gp,gp,1
+  1c:	00118193          	addi	gp,gp,1
+  20:	00118193          	addi	gp,gp,1
+  24:	00118193          	addi	gp,gp,1
+  28:	00118193          	addi	gp,gp,1
+  2c:	00118193          	addi	gp,gp,1
+  30:	00118193          	addi	gp,gp,1
+  34:	00118193          	addi	gp,gp,1
+  38:	02111c63          	bne	sp,ra,70 <return>
+  3c:	00118193          	addi	gp,gp,1
+  40:	00118193          	addi	gp,gp,1
+  44:	00118193          	addi	gp,gp,1
+  48:	00118193          	addi	gp,gp,1
+  4c:	00118193          	addi	gp,gp,1
+  50:	00118193          	addi	gp,gp,1
+  54:	00118193          	addi	gp,gp,1
+  58:	00118193          	addi	gp,gp,1
+  5c:	00118193          	addi	gp,gp,1
+  60:	00118193          	addi	gp,gp,1
+  64:	00118193          	addi	gp,gp,1
+  68:	00118193          	addi	gp,gp,1
+
+0000006c <end>:
+  6c:	0000006f          	j	6c <end>
+
+00000070 <return>:
+  70:	00008067          	ret
+
+Disassembly of section .riscv.attributes:
+
+00000000 <.riscv.attributes>:
+   0:	1941                	.2byte	0x1941
+   2:	0000                	.2byte	0x0
+   4:	7200                	.2byte	0x7200
+   6:	7369                	.2byte	0x7369
+   8:	01007663          	bgeu	zero,a6,14 <.riscv.attributes+0x14>
+   c:	0000000f          	fence	unknown,unknown
+  10:	7205                	.2byte	0x7205
+  12:	3376                	.2byte	0x3376
+  14:	6932                	.2byte	0x6932
+  16:	7032                	.2byte	0x7032
+  18:	0030                	.2byte	0x30
