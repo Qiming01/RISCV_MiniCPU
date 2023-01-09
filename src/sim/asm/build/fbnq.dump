@@ -1,0 +1,46 @@
+
+build/fbnq.o：     文件格式 elf32-littleriscv
+
+
+Disassembly of section .text:
+
+00000000 <main>:
+   0:	00a00493          	li	s1,10
+   4:	00100093          	li	ra,1
+   8:	00100113          	li	sp,1
+   c:	00000193          	li	gp,0
+  10:	00200213          	li	tp,2
+  14:	00200313          	li	t1,2
+  18:	02935063          	bge	t1,s1,38 <cond1>
+
+0000001c <head>:
+  1c:	002081b3          	add	gp,ra,sp
+  20:	000100b3          	add	ra,sp,zero
+  24:	00018133          	add	sp,gp,zero
+  28:	00120213          	addi	tp,tp,1 # 1 <main+0x1>
+  2c:	fe9248e3          	blt	tp,s1,1c <head>
+  30:	000103b3          	add	t2,sp,zero
+  34:	0080006f          	j	3c <end>
+
+00000038 <cond1>:
+  38:	00100393          	li	t2,1
+
+0000003c <end>:
+  3c:	000383b3          	add	t2,t2,zero
+  40:	ffdff06f          	j	3c <end>
+  44:	00008067          	ret
+
+Disassembly of section .riscv.attributes:
+
+00000000 <.riscv.attributes>:
+   0:	1941                	.2byte	0x1941
+   2:	0000                	.2byte	0x0
+   4:	7200                	.2byte	0x7200
+   6:	7369                	.2byte	0x7369
+   8:	01007663          	bgeu	zero,a6,14 <.riscv.attributes+0x14>
+   c:	0000000f          	fence	unknown,unknown
+  10:	7205                	.2byte	0x7205
+  12:	3376                	.2byte	0x3376
+  14:	6932                	.2byte	0x6932
+  16:	7032                	.2byte	0x7032
+  18:	0030                	.2byte	0x30

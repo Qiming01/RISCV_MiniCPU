@@ -1,0 +1,44 @@
+
+build/miniCPU_sim_2.o：     文件格式 elf32-littleriscv
+
+
+Disassembly of section .text:
+
+00000000 <main>:
+   0:	0010c0b3          	xor	ra,ra,ra
+   4:	00214133          	xor	sp,sp,sp
+   8:	10000093          	li	ra,256
+   c:	00008133          	add	sp,ra,zero
+  10:	02209863          	bne	ra,sp,40 <end>
+  14:	20000137          	lui	sp,0x20000
+  18:	00000393          	li	t2,0
+  1c:	00138393          	addi	t2,t2,1
+  20:	04300293          	li	t0,67
+  24:	00512023          	sw	t0,0(sp) # 20000000 <end+0x1fffffc0>
+  28:	00100113          	li	sp,1
+  2c:	00000093          	li	ra,0
+  30:	01000193          	li	gp,16
+  34:	00710263          	beq	sp,t2,38 <loop>
+
+00000038 <loop>:
+  38:	00108093          	addi	ra,ra,1
+  3c:	fe119ee3          	bne	gp,ra,38 <loop>
+
+00000040 <end>:
+  40:	0000006f          	j	40 <end>
+  44:	00008067          	ret
+
+Disassembly of section .riscv.attributes:
+
+00000000 <.riscv.attributes>:
+   0:	1941                	.2byte	0x1941
+   2:	0000                	.2byte	0x0
+   4:	7200                	.2byte	0x7200
+   6:	7369                	.2byte	0x7369
+   8:	01007663          	bgeu	zero,a6,14 <.riscv.attributes+0x14>
+   c:	0000000f          	fence	unknown,unknown
+  10:	7205                	.2byte	0x7205
+  12:	3376                	.2byte	0x3376
+  14:	6932                	.2byte	0x6932
+  16:	7032                	.2byte	0x7032
+  18:	0030                	.2byte	0x30
